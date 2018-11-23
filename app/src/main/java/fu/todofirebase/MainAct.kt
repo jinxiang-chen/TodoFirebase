@@ -1,9 +1,10 @@
 package fu.todofirebase
 
 import android.os.Bundle
+import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics
-import android.util.StatsLog.logEvent
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainAct : AppCompatActivity() {
 
@@ -13,11 +14,32 @@ class MainAct : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
-        val bundle = Bundle()
-        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "87")
-        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "name87")
-        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image")
-        mFirebaseAnalytics.logEvent("holy_shit", bundle)
-        mFirebaseAnalytics.setUserProperty("favorite_food", "apple")
+
+        button.setOnClickListener {
+            mFirebaseAnalytics.logEvent("button", null)
+        }
+
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                val bundle = Bundle()
+                bundle.putString("value", seekBar!!.progress.toString())
+                mFirebaseAnalytics.logEvent("switch", bundle)
+            }
+
+        })
+
+        switch1.setOnCheckedChangeListener {
+                buttonView, isChecked ->
+            mFirebaseAnalytics.logEvent("switch", null)
+        }
     }
+
 }
