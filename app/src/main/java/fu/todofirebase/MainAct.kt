@@ -1,5 +1,7 @@
 package fu.todofirebase
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
@@ -15,8 +17,18 @@ class MainAct : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
+
+        val properties = getSharedPreferences("properties", Context.MODE_PRIVATE)
+        val likeGameProperties = properties.getString("likeGame", "null")
+        if (likeGameProperties == "null"){
+            val intent = Intent(this, AskLikeActivity::class.java)
+            startActivity(intent)
+        }
+
         button.setOnClickListener {
             mFirebaseAnalytics.logEvent("button", null)
+            val intent = Intent(this, AskLikeActivity::class.java)
+            startActivity(intent)
         }
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -31,7 +43,7 @@ class MainAct : AppCompatActivity() {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 val bundle = Bundle()
                 bundle.putString("value", seekBar!!.progress.toString())
-                mFirebaseAnalytics.logEvent("switch", bundle)
+                mFirebaseAnalytics.logEvent("seekBar", bundle)
             }
 
         })

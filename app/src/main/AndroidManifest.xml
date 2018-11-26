@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="fu.todofirebase">
+          xmlns:tools="http://schemas.android.com/tools" package="fu.todofirebase">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,8 +13,30 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainAct">
+
+        </activity>
+
+        <activity android:name=".AskLikeActivity"/>
+
+        <activity android:name=".AuthAct">
+
+        </activity>
+
+        <activity android:name=".GoogleSignInAct">
+
+        </activity>
+
+        <activity android:name=".PasswordCreateAct">
+
+        </activity>
+
+        <activity android:name=".PasswordSignInAct">
+
+        </activity>
+
+        <activity android:name=".PhoneAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
