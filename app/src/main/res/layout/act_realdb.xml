@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+            android:text="SignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/btnSignIn"/>
+    <Button
+            android:text="GET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/btnGet"/>
+    <Button
+            android:text="Post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/btnPost"/>
+    <Button
+            android:text="Delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/btnDelete"/>
+    <Button
+            android:text="Put"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/btnPut"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/txtContent"/>
+</LinearLayout>

@@ -37,6 +37,14 @@
         </activity>
 
         <activity android:name=".PhoneAct">
+
+        </activity>
+
+        <activity android:name=".RealDBAct">
+
+        </activity>
+
+        <activity android:name=".RemoteAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
