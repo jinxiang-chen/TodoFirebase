@@ -1,6 +1,5 @@
 package fu.todofirebase
 
-import android.graphics.Color
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -19,7 +18,6 @@ class RemoteAct: AppCompatActivity(){
         layRoot = findViewById(R.id.act_remote_layRoot)
 
         firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
-
         firebaseRemoteConfig.setConfigSettings(
             FirebaseRemoteConfigSettings.Builder()
                 .setDeveloperModeEnabled(BuildConfig.DEBUG)
@@ -33,11 +31,11 @@ class RemoteAct: AppCompatActivity(){
                 firebaseRemoteConfig.activateFetched()
                 val appTheme = firebaseRemoteConfig.getString("appTheme")
                 Toast.makeText(this, appTheme, Toast.LENGTH_SHORT).show()
-                if(appTheme == "red"){
-                    layRoot.setBackgroundColor(Color.RED)
-                }else{
-                    layRoot.setBackgroundColor(Color.WHITE)
-                }
+//                if(appTheme == "red"){
+//                    layRoot.setBackgroundColor(Color.RED)
+//                }else{
+//                    layRoot.setBackgroundColor(Color.WHITE)
+//                }
             }else{
 
             }
